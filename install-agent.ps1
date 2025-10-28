@@ -13,7 +13,7 @@ Expand-Archive "$agentDir\agent.zip" -DestinationPath $agentDir
 
 # Configure agent
 cd $agentDir
-.\config.cmd --unattended --url $orgUrl --auth pat --token $pat --pool $pool --acceptTeeEula
+.\config.cmd --url $orgUrl --auth pat --token $pat --pool $pool
 
 # Install and start agent as Windows service
 .\svc install
