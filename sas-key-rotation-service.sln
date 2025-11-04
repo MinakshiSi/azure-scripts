@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36127.28 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sas-key-generation-service", "src\sas-key-generation-service\sas-key-generation-service.csproj", "{02EBD00B-D968-4C5C-AED2-9F0E8247843D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAS-Key-Generation", "src\SAS-Key-Generation\SAS-Key-Generation.csproj", "{BCECB715-40FF-4EA9-9488-64A4513A6333}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9D5CA984-4916-4A84-A849-EAAB3D93FD39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAS-Key-Generation.Tests", "tests\SAS-Key-Generation.Tests\SAS-Key-Generation.Tests.csproj", "{BDDB7A15-18A9-4E65-A7C3-9795FE4F4049}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sas-key-rotation-function", "src\sas-key-rotation-function\sas-key-rotation-function.csproj", "{583E2288-E3BB-4401-8D9A-13C9712B967B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02EBD00B-D968-4C5C-AED2-9F0E8247843D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02EBD00B-D968-4C5C-AED2-9F0E8247843D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02EBD00B-D968-4C5C-AED2-9F0E8247843D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02EBD00B-D968-4C5C-AED2-9F0E8247843D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCECB715-40FF-4EA9-9488-64A4513A6333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCECB715-40FF-4EA9-9488-64A4513A6333}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCECB715-40FF-4EA9-9488-64A4513A6333}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCECB715-40FF-4EA9-9488-64A4513A6333}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDDB7A15-18A9-4E65-A7C3-9795FE4F4049}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDDB7A15-18A9-4E65-A7C3-9795FE4F4049}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDDB7A15-18A9-4E65-A7C3-9795FE4F4049}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDDB7A15-18A9-4E65-A7C3-9795FE4F4049}.Release|Any CPU.Build.0 = Release|Any CPU
+		{583E2288-E3BB-4401-8D9A-13C9712B967B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{583E2288-E3BB-4401-8D9A-13C9712B967B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{583E2288-E3BB-4401-8D9A-13C9712B967B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{583E2288-E3BB-4401-8D9A-13C9712B967B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{02EBD00B-D968-4C5C-AED2-9F0E8247843D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{BCECB715-40FF-4EA9-9488-64A4513A6333} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{BDDB7A15-18A9-4E65-A7C3-9795FE4F4049} = {9D5CA984-4916-4A84-A849-EAAB3D93FD39}
+		{583E2288-E3BB-4401-8D9A-13C9712B967B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A73456E-45A1-4472-982A-58EC4DB3FBFF}
+	EndGlobalSection
+EndGlobal

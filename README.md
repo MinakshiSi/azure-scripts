@@ -1,24 +1,28 @@
 # Azure SAS Key Automation
 
-This project automates the generation and distribution of Azure Storage Service SAS Keys using an Azure Function.
-The solution is fully automated with Infrastructure as Code (Bicep) and deployed using GitHub Actions.
+This project automates Azure Storage SAS key generation and secure distribution using Azure Functions.  
+It is built with Infrastructure as Code (Bicep) and automated CI/CD pipelines via GitHub Actions.
 
-## Features
-- Timer-triggered Azure Function for SAS key generation
-- Secure distribution via managed identity
-- Full IaC deployment using Bicep
-- Automated CI/CD via GitHub Actions
+## Architecture
+- Timer-triggered Azure Function
+- Infrastructure as Code (Bicep)
+- GitHub Actions for CI/CD
+- Application Insights for monitoring
 
-## Folder Structure
-See `/src` for function code, `/infrastructure` for Bicep templates, and `.github/workflows` for pipeline definition.
-
-## Deployment
-1. Create an Azure Service Principal and add it as `AZURE_CREDENTIALS` in GitHub Secrets.
-2. Update `resourceGroupName` in `build-and-deploy.yml`.
-3. Push to `main` — CI/CD pipeline will build, deploy infrastructure, and publish the Function.
+## Deployment Steps
+1. Fork this repo and clone locally.
+2. Add Azure credentials to GitHub Secrets:
+   - `AZURE_CREDENTIALS`
+   - `AZURE_RESOURCE_GROUP`
+   - `FUNCTION_APP_NAME`
+3. Push to `main` branch → deployment auto-triggers.
 
 ## Tech Stack
 - .NET 8
 - Azure Functions
 - Bicep (IaC)
-- Azure DevOps / GitHub Actions
+- GitHub Actions
+- Azure Storage, App Insights
+
+## Note
+This repository contains sample code only — no production secrets or real SAS keys.

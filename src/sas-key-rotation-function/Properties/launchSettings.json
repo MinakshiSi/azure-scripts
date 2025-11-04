@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "sas_key_rotation_function": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7118",
+      "launchBrowser": false
+    }
+  }
+}
