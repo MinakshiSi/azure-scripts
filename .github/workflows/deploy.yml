@@ -1,5 +1,8 @@
 name: Deploy Azure Function App
 
+env:
+  ACTIONS_STEP_DEBUG: true
+
 on:
   push:
     branches:
@@ -28,6 +31,9 @@ jobs:
         uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Set active subscription
+        run: az account set --subscription f3571bd1-c070-4529-928f-a2ec94b8e961
 
       - name: Deploy Infrastructure
         run: |
