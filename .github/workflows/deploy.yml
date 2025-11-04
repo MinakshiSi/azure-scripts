@@ -19,10 +19,10 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Build project
-        run: dotnet build ./src/SasKeyFunctionApp/SasKeyFunctionApp.csproj --configuration Release
+        run: dotnet build ./src/sas-key-rotation-function/sas-key-rotation-function.csproj --configuration Release
 
       - name: Publish Function App
-        run: dotnet publish ./src/SasKeyFunctionApp/SasKeyFunctionApp.csproj -c Release -o ./publish
+        run: dotnet publish ./src/sas-key-rotation-function/sas-key-rotation-function.csproj -c Release -o ./publish
 
       - name: Azure Login
         uses: azure/login@v2
