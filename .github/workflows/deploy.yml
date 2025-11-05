@@ -38,6 +38,7 @@ jobs:
           tenant-id: e46b44b0-4a78-4c07-9f82-043e7432a6a8
           subscription-id: f3571bd1-c070-4529-928f-a2ec94b8e961
           auth-type: IDENTITY
+          identity-type: federated
 
       - name: Set active subscription
         run: az account set --subscription f3571bd1-c070-4529-928f-a2ec94b8e961
