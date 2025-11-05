@@ -32,13 +32,16 @@ jobs:
         run: dotnet publish ./src/sas-key-rotation-function/sas-key-rotation-function.csproj -c Release -o ./publish
 
       - name: Azure Login via OIDC
+        id: azure_login
         uses: azure/login@v2
         with:
           client-id: ed104207-c4eb-4f25-a990-042c30fff04f
           tenant-id: e46b44b0-4a78-4c07-9f82-043e7432a6a8
           subscription-id: f3571bd1-c070-4529-928f-a2ec94b8e961
           auth-type: IDENTITY
-          identity-type: federated
+
+      - name: Dump OIDC Token (Diagnostic)
+        run: echo "OIDC Token: ${{ steps.azure_login.outputs.oidc-token }}"
 
       - name: Set active subscription
         run: az account set --subscription f3571bd1-c070-4529-928f-a2ec94b8e961
