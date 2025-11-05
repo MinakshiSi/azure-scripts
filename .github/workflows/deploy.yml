@@ -32,12 +32,16 @@ jobs:
         run: dotnet publish ./src/sas-key-rotation-function/sas-key-rotation-function.csproj -c Release -o ./publish
 
       - name: Request OIDC Token (Diagnostic)
-        id: get_token
         run: |
           echo "Requesting OIDC token..."
-          TOKEN=$(curl -s -X POST -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" -H "Accept: application/json" "$ACTIONS_ID_TOKEN_REQUEST_URL")
-          echo "OIDC Token Response:"
+          TOKEN=$(curl -s -X POST \
+            -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            -H "Accept: application/json" \
+            "$ACTIONS_ID_TOKEN_REQUEST_URL")
+          echo "Raw Token Response:"
           echo "$TOKEN"
+          echo "Decoded Token:"
+          echo "$TOKEN" | jq -r '.value'
 
       - name: Azure Login via OIDC
         uses: azure/login@v2
