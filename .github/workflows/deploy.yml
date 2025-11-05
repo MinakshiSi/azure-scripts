@@ -31,17 +31,17 @@ jobs:
       - name: Publish Function App
         run: dotnet publish ./src/sas-key-rotation-function/sas-key-rotation-function.csproj -c Release -o ./publish
 
-      - name: Request OIDC Token (Diagnostic)
+      - name: Request OIDC Token (Unmasked + Save to File)
         run: |
           echo "Requesting OIDC token..."
-          TOKEN=$(curl -s -X POST \
+          TOKEN_JSON=$(curl -s -X POST \
             -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
             -H "Accept: application/json" \
             "$ACTIONS_ID_TOKEN_REQUEST_URL")
-          echo "Raw Token Response:"
-          echo "$TOKEN"
-          echo "Decoded Token:"
-          echo "$TOKEN" | jq -r '.value'
+          TOKEN=$(echo "$TOKEN_JSON" | jq -r '.value')
+          echo "Base64 Encoded Token:"
+          echo "$TOKEN" | base64
+          echo "$TOKEN" > oidc-token.txt
 
       - name: Azure Login via OIDC
         uses: azure/login@v2
