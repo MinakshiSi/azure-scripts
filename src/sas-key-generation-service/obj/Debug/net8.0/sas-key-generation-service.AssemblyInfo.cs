@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("sas-key-generation-service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd523791fa3d4afe5f100083d4cfcc61624a6b32")]
 [assembly: System.Reflection.AssemblyProductAttribute("sas-key-generation-service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("sas-key-generation-service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

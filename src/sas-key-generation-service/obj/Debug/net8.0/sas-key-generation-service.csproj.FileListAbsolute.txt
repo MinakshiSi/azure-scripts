@@ -5,7 +5,6 @@ C:\Minakshi\PracticeSolution\sas-key-rotation-service\src\sas-key-generation-ser
 C:\Minakshi\PracticeSolution\sas-key-rotation-service\src\sas-key-generation-service\obj\Debug\net8.0\sas-key-generation-service.csproj.CoreCompileInputs.cache
 C:\Minakshi\PracticeSolution\sas-key-rotation-service\src\sas-key-generation-service\obj\Debug\net8.0\sas-key-generation-service.sourcelink.json
 C:\Minakshi\PracticeSolution\sas-key-rotation-service\src\sas-key-generation-service\bin\Debug\net8.0\appsettings.Development.json
-C:\Minakshi\PracticeSolution\sas-key-rotation-service\src\sas-key-generation-service\bin\Debug\net8.0\appsettings.json
 C:\Minakshi\PracticeSolution\sas-key-rotation-service\src\sas-key-generation-service\bin\Debug\net8.0\sas-key-generation-service.exe
 C:\Minakshi\PracticeSolution\sas-key-rotation-service\src\sas-key-generation-service\bin\Debug\net8.0\sas-key-generation-service.deps.json
 C:\Minakshi\PracticeSolution\sas-key-rotation-service\src\sas-key-generation-service\bin\Debug\net8.0\sas-key-generation-service.runtimeconfig.json

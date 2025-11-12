@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SAS-Key-Generation.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d90723ce54ac0e655aaaa096b284650be454567")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd523791fa3d4afe5f100083d4cfcc61624a6b32")]
 [assembly: System.Reflection.AssemblyProductAttribute("SAS-Key-Generation.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SAS-Key-Generation.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

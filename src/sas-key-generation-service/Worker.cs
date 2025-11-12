@@ -1,10 +1,11 @@
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Configuration;
+using SAS_Key_Generation; // reference to your class library
+using SAS_Key_Generation.Helpers;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using SAS_Key_Generation; // reference to your class library
 
 namespace sas_key_generation_service
 {
@@ -12,12 +13,14 @@ namespace sas_key_generation_service
     {
         private readonly ILogger<Worker> _logger;
         private readonly IConfiguration _configuration;
+        private readonly IStorageHelper _storageHelper;
         private Timer _timer;
 
-        public Worker(ILogger<Worker> logger, IConfiguration configuration)
+        public Worker(ILogger<Worker> logger, IConfiguration configuration, IStorageHelper storageHelper)
         {
             _logger = logger;
             _configuration = configuration;
+            _storageHelper = storageHelper;
         }
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
@@ -37,7 +40,7 @@ namespace sas_key_generation_service
 
                 _logger.LogInformation("SAS Key generation job started at {time}", DateTimeOffset.Now);
 
-                var generator = new SASKeyGeneration(connectionString, containerName);
+                var generator = new SASKeyGeneration(_storageHelper,connectionString, containerName);
                 string sasUrl = generator.GenerateSASKey();
 
                 _logger.LogInformation("Generated SAS URL: {sasUrl}", sasUrl);
