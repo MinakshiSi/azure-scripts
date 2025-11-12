@@ -1,7 +1,4 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/azure/functions-action
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy dotnet core app to Azure Function App - sas-key-rotation-function
+name: Build and deploy Azure Function App - sas-key-rotation-function
 
 on:
   push:
@@ -10,32 +7,33 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '8.0.x' # set this to the dotnet version to use
+  DOTNET_VERSION: '8.0.x'
+  PROJECT_PATH: 'src/sas-key-rotation-function'
+  PUBLISH_DIR: '${{ env.PROJECT_PATH }}/publish'
 
 jobs:
   build-and-deploy:
     runs-on: windows-latest
     permissions:
-      id-token: write #This is required for requesting the JWT
-      contents: read #This is required for actions/checkout
+      id-token: write
+      contents: read
 
     steps:
-      - name: 'Checkout GitHub Action'
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
+      - name: Setup .NET SDK
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: 'Resolve Project Dependencies Using Dotnet'
+      - name: Publish Azure Function App
         shell: pwsh
         run: |
-          pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-          dotnet build --configuration Release --output ./output
-          popd
-      
+          dotnet publish ${{ env.PROJECT_PATH }}/sas-key-rotation-function.csproj `
+            --configuration Release `
+            --output ${{ env.PUBLISH_DIR }}
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -43,11 +41,9 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_56F9299F20EA4FD99D12AD2995DB984F }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_E75E82A0A4CD41B5BF3A33B940E9F064 }}
 
-      - name: 'Run Azure Functions Action'
+      - name: Deploy to Azure Function App
         uses: Azure/functions-action@v1
-        id: fa
         with:
           app-name: 'sas-key-rotation-function'
           slot-name: 'Production'
-          package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
-          
+          package: ${{ env.PUBLISH_DIR }}
